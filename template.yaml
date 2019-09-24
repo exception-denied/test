@@ -23,17 +23,17 @@
 			"Properties": {
 				"Handler": "Echo.AssetService.Api::Echo.AssetService.Api.LambdaEntryPoint::FunctionHandlerAsync",
 				"Runtime": "dotnetcore2.1",
-				"CodeUri" : "s3://$bucketName/$project-$runDateTime.zip",
+				"CodeUri" : "",
 				"MemorySize": 256,
 				"Timeout": 30,
-				"Role" : "bucketName:abc123",
+				"Role" : "",
 				"Policies": [
 					"AWSLambdaFullAccess"
 				],
 				"Environment": {
 					"Variables": {
-						"AWS_APIGATEWAYV2_STAGE" : "dev",
-						"EchoAssetServiceS3Bucket" : "bucketName"
+						"AWS_APIGATEWAYV2_STAGE" : "",
+						"EchoAssetServiceS3Bucket" : ""
 					}
 				},
 				"Tracing" : "Active",
