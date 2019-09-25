@@ -15,7 +15,32 @@
 			"Type": "String",
 			"Description": "Name of S3 bucket that will be proxied. If left blank a name will be generated.",
 			"MinLength": "0"
-		}
+		},
+
+		"CodeUri": {
+			"Type": "String",
+			"Description": "Path of the zip file",
+			"MinLength": "0"
+		},
+
+		"Role": {
+			"Type": "String",
+			"Description": "RoleARN will be used with Lambda",
+			"MinLength": "0"
+		},
+
+		"Stage": {
+			"Type": "String",
+			"Description": "Deployment stage",
+			"MinLength": "0"
+		},
+
+		"S3Bucket": {
+			"Type": "String",
+			"Description": "Name of S3 bucket",
+			"MinLength": "0"
+		},
+
 	},
 	"Resources": {
 		"AspNetCoreFunction": {
@@ -23,17 +48,17 @@
 			"Properties": {
 				"Handler": "Echo.AssetService.Api::Echo.AssetService.Api.LambdaEntryPoint::FunctionHandlerAsync",
 				"Runtime": "dotnetcore2.1",
-				"CodeUri" : "",
+				"CodeUri" : !Ref CodeUri ,
 				"MemorySize": 256,
 				"Timeout": 30,
-				"Role" : "",
+				"Role" : !Ref Role,
 				"Policies": [
 					"AWSLambdaFullAccess"
 				],
 				"Environment": {
 					"Variables": {
-						"AWS_APIGATEWAYV2_STAGE" : "",
-						"EchoAssetServiceS3Bucket" : ""
+						"AWS_APIGATEWAYV2_STAGE" : !Ref Stage,
+						"EchoAssetServiceS3Bucket" : !Ref S3Bucket
 					}
 				},
 				"Tracing" : "Active",
