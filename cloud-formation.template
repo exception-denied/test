@@ -23,7 +23,7 @@
 			"Properties": {
 				"Handler": "Echo.AssetService.Api::Echo.AssetService.Api.LambdaEntryPoint::FunctionHandlerAsync",
 				"Runtime": "dotnetcore2.1",
-				"CodeUri" : "s3://$bucketName/$project-$runDateTime.zip",
+				"CodeUri" : "",
 				"MemorySize": 256,
 				"Timeout": 30,
 				"Role" : "",
